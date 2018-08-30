@@ -12,7 +12,7 @@ namespace
 {
 struct ButtonDetails_lt
 {
-  QAction* action;
+  QAction* action{nullptr};
   tp_utils::StringID value;
 };
 }

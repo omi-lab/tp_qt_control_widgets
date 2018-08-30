@@ -7,6 +7,7 @@ namespace tdp_control_widgets
 //##################################################################################################
 struct SelectChannelCombo::Private
 {
+  TP_NONCOPYABLE(Private);
   SelectChannelCombo* q;
   tp_control::CoreInterface* coreInterface;
   tp_utils::StringID typeID;
@@ -46,6 +47,7 @@ struct SelectChannelCombo::Private
     auto& handles = channels[typeID];
 
     std::vector<tp_utils::StringID> names;
+    names.reserve(handles.size());
     for(const auto& h : handles)
       names.push_back(h.first);
 
@@ -68,7 +70,7 @@ SelectChannelCombo::SelectChannelCombo(tp_control::CoreInterface* coreInterface,
   QComboBox(parent),
   d(new Private(this, coreInterface, typeID))
 {
-  connect(this, SIGNAL(currentIndexChanged(const QString&)), this, SLOT(currentIndexChangedSlot(const QString&)));
+  connect(this, SIGNAL(currentIndexChanged(QString)), this, SLOT(currentIndexChangedSlot(QString)));
 }
 
 //##################################################################################################
