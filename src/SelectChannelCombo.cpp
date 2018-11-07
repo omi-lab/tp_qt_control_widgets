@@ -90,7 +90,6 @@ void SelectChannelCombo::setSelectedChannel(const tp_utils::StringID& channelNam
 {
   d->selectedChannel = d->coreInterface->handle(d->typeID, channelNameID);
   d->updateList();
-  emit selectedChannelChanged(d->selectedChannel);
 }
 
 //##################################################################################################
