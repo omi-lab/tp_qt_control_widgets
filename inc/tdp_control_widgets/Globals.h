@@ -4,9 +4,9 @@
 #include "tp_utils/Globals.h"
 
 #if defined(TDP_CONTROL_WIDGETS_LIBRARY)
-#  define TDP_CONTROL_WIDGETS_SHARED_EXPORT
+#  define TDP_CONTROL_WIDGETS_SHARED_EXPORT TP_EXPORT
 #else
-#  define TDP_CONTROL_WIDGETS_SHARED_EXPORT
+#  define TDP_CONTROL_WIDGETS_SHARED_EXPORT TP_IMPORT
 #endif
 
 //##################################################################################################
