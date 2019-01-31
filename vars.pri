@@ -5,7 +5,7 @@ QT += widgets gui
 
 DEFINES += TDP_CONTROL_WIDGETS_LIBRARY
 
-SOURCES += src/Globals.cpp
+#SOURCES += src/Globals.cpp
 HEADERS += inc/tdp_control_widgets/Globals.h
 
 SOURCES += src/SelectChannelCombo.cpp
