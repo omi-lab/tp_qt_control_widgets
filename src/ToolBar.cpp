@@ -48,7 +48,7 @@ struct ToolBar::Private
   ////################################################################################################
   //static void channelChanged(const CoreInterfaceHandle& handle, void* opaque)
   //{
-  //  Private* d = (Private*)opaque;
+  //  auto* d = (Private*)opaque;
   //
   //  if(handle == d->channel)
   //    d->updateButtons();
