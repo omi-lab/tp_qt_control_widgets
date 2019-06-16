@@ -28,10 +28,10 @@ struct ToolBar::Private
   QSignalMapper mapper;
 
   //################################################################################################
-  Private(ToolBar* q_, tp_control::CoreInterface* coreInterface_, const tp_control::CoreInterfaceHandle& channel_):
+  Private(ToolBar* q_, tp_control::CoreInterface* coreInterface_, tp_control::CoreInterfaceHandle channel_):
     q(q_),
     coreInterface(coreInterface_),
-    channel(channel_)
+    channel(std::move(channel_))
   {
 
   }

@@ -17,10 +17,10 @@ struct SelectChannelCombo::Private
   tp_control::ChannelListChangedCallback channelListChangedCallback;
 
   //################################################################################################
-  Private(SelectChannelCombo* q_, tp_control::CoreInterface* coreInterface_, const tp_utils::StringID& typeID_):
+  Private(SelectChannelCombo* q_, tp_control::CoreInterface* coreInterface_, tp_utils::StringID typeID_):
     q(q_),
     coreInterface(coreInterface_),
-    typeID(typeID_)
+    typeID(std::move(typeID_))
   {
     channelListChangedCallback = [&](){updateList();};
     coreInterface->registerCallback(&channelListChangedCallback);
