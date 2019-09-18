@@ -51,7 +51,7 @@ struct SelectChannelCombo::Private
     for(const auto& h : handles)
       names.push_back(h.first);
 
-    qSort(names.begin(), names.end(), tp_utils::lessThanStringID);
+    std::sort(names.begin(), names.end(), tp_utils::lessThanStringID);
     for(const tp_utils::StringID& name : names)
     {
       const tp_control::CoreInterfaceHandle& handle = handles[name];
