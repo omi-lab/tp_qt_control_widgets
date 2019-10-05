@@ -21,7 +21,7 @@ namespace tp_qt_control_widgets
 
 //##################################################################################################
 //! A combo box for selecting a channel from a core interface or creating one.
-class tp_qt_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelComboAndButton: public QWidget
+class TP_QT_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelComboAndButton: public QWidget
 {
   Q_OBJECT
 public:

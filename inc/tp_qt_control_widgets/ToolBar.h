@@ -28,7 +28,7 @@ currently checked.
 The tool bar will both set the value of the channel and respond to changes in that channel, updating
 the check state of its buttons accordingly.
 */
-class tp_qt_CONTROL_WIDGETS_SHARED_EXPORT ToolBar: public QToolBar
+class TP_QT_CONTROL_WIDGETS_SHARED_EXPORT ToolBar: public QToolBar
 {
   Q_OBJECT
 public:

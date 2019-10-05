@@ -3,7 +3,7 @@ TEMPLATE = lib
 
 QT += widgets gui
 
-DEFINES += tp_qt_CONTROL_WIDGETS_LIBRARY
+DEFINES += TP_QT_CONTROL_WIDGETS_LIBRARY
 
 #SOURCES += src/Globals.cpp
 HEADERS += inc/tp_qt_control_widgets/Globals.h

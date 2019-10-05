@@ -26,7 +26,7 @@ namespace tp_qt_control_widgets
 This class allows the user to select a channel, of a given type from a \link AbstractCoreInterface
 \endlink.
 */
-class tp_qt_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelCombo: public QComboBox
+class TP_QT_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelCombo: public QComboBox
 {
   Q_OBJECT
 public:
