@@ -1,7 +1,7 @@
-#include "tdp_control_widgets/SelectChannelCombo.h"
+#include "tp_qt_control_widgets/SelectChannelCombo.h"
 #include "tp_control/CoreInterface.h"
 
-namespace tdp_control_widgets
+namespace tp_qt_control_widgets
 {
 
 //##################################################################################################

@@ -1,7 +1,7 @@
-#ifndef tdp_control_ToolBar_h
-#define tdp_control_ToolBar_h
+#ifndef tp_qt_control_ToolBar_h
+#define tp_qt_control_ToolBar_h
 
-#include "tdp_control_widgets/Globals.h"
+#include "tp_qt_control_widgets/Globals.h"
 
 #include <QToolBar>
 
@@ -16,7 +16,7 @@ class CoreInterface;
 class CoreInterfaceHandle;
 }
 
-namespace tdp_control_widgets
+namespace tp_qt_control_widgets
 {
 
 //##################################################################################################
@@ -28,7 +28,7 @@ currently checked.
 The tool bar will both set the value of the channel and respond to changes in that channel, updating
 the check state of its buttons accordingly.
 */
-class TDP_CONTROL_WIDGETS_SHARED_EXPORT ToolBar: public QToolBar
+class tp_qt_CONTROL_WIDGETS_SHARED_EXPORT ToolBar: public QToolBar
 {
   Q_OBJECT
 public:

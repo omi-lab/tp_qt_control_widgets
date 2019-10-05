@@ -1,11 +1,11 @@
-#include "tdp_control_widgets/ToolBar.h"
+#include "tp_qt_control_widgets/ToolBar.h"
 #include "tp_control/CoreInterface.h"
 
 #include <QSignalMapper>
 #include <QList>
 #include <QAction>
 
-namespace tdp_control_widgets
+namespace tp_qt_control_widgets
 {
 
 namespace

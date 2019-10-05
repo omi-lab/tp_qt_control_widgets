@@ -1,9 +1,9 @@
-#ifndef tdp_control_widgets_SelectChannelCombo_h
-#define tdp_control_widgets_SelectChannelCombo_h
+#ifndef tp_qt_control_widgets_SelectChannelComboAndButton_h
+#define tp_qt_control_widgets_SelectChannelComboAndButton_h
 
-#include "tdp_control_widgets/Globals.h"
+#include "tp_qt_control_widgets/Globals.h"
 
-#include <QComboBox>
+#include <QWidget>
 
 namespace tp_utils
 {
@@ -16,17 +16,12 @@ class CoreInterface;
 class CoreInterfaceHandle;
 }
 
-namespace tdp_control_widgets
+namespace tp_qt_control_widgets
 {
 
 //##################################################################################################
-//! A combo box for selecting a channel from a core interface.
-/*!
-\ingroup ComboBoxes
-This class allows the user to select a channel, of a given type from a \link AbstractCoreInterface
-\endlink.
-*/
-class TDP_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelCombo: public QComboBox
+//! A combo box for selecting a channel from a core interface or creating one.
+class tp_qt_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelComboAndButton: public QWidget
 {
   Q_OBJECT
 public:
@@ -40,11 +35,11 @@ public:
   \param typeID - The type of channel to list.
   \param parent - The parent widget.
   */
-  SelectChannelCombo(tp_control::CoreInterface* coreInterface, const tp_utils::StringID& typeID, QWidget* parent=nullptr);
+  SelectChannelComboAndButton(tp_control::CoreInterface* coreInterface, const tp_utils::StringID& typeID, QWidget* parent=nullptr);
 
   //################################################################################################
   //! Destructor.
-  virtual ~SelectChannelCombo();
+  virtual ~SelectChannelComboAndButton();
 
   //################################################################################################
   //! Returns the currently selected channel.
@@ -72,9 +67,6 @@ signals:
   //################################################################################################
   //! Emitted each time the channel selection changes.
   void selectedChannelChanged(const tp_control::CoreInterfaceHandle& selectedChannel);
-
-private slots:
-  void currentIndexChangedSlot(const QString& text);
 
 private:
   struct Private;
