@@ -5,6 +5,8 @@
 
 #include "tp_validation/StringValidation.h"
 
+#include "tp_utils/Translation.h"
+
 #include <QBoxLayout>
 #include <QPushButton>
 #include <QInputDialog>
@@ -29,12 +31,12 @@ SelectChannelComboAndButton::SelectChannelComboAndButton(tp_control::CoreInterfa
   d->combo = new SelectChannelCombo(coreInterface, typeID, parent);
   l->addWidget(d->combo);
 
-  auto addButton = new QPushButton("Add");
+  auto addButton = new QPushButton(tpTR("Add"));
   l->addWidget(addButton);
 
   connect(addButton, &QPushButton::clicked, [&, typeID]()
   {
-    std::string channelName = QInputDialog::getText(this->parentWidget(), "Channel Name", "Enter a name for the channel.").toStdString();
+    std::string channelName = QInputDialog::getText(this->parentWidget(), tpTR("Channel Name"), tpTR("Enter a name for the channel.")).toStdString();
     channelName = tp_validation::cleanAlphaNumericSpaceUnderscore(channelName);
 
     if(channelName.empty())
@@ -45,7 +47,7 @@ SelectChannelComboAndButton::SelectChannelComboAndButton(tp_control::CoreInterfa
     std::unordered_map<tp_utils::StringID, std::unordered_map<tp_utils::StringID, tp_control::CoreInterfaceHandle>> channels = d->combo->coreInterface()->channels();
     if(tpContainsKey(channels[typeID], nameID))
     {
-      QMessageBox::critical(this->parentWidget(), "Error", "Selected name already exists!");
+      QMessageBox::critical(this->parentWidget(), tpTR("Error"), tpTR("Selected name already exists!"));
       return;
     }
 

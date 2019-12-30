@@ -1,5 +1,8 @@
 #include "tp_qt_control_widgets/SelectChannelCombo.h"
+
 #include "tp_control/CoreInterface.h"
+
+#include "tp_utils/Translation.h"
 
 namespace tp_qt_control_widgets
 {
@@ -33,7 +36,7 @@ struct SelectChannelCombo::Private
     coreInterface->unregisterCallback(&channelListChangedCallback);
   }
 
-  //##################################################################################################
+  //################################################################################################
   void updateList()
   {
     q->blockSignals(true);
@@ -42,7 +45,7 @@ struct SelectChannelCombo::Private
 
     auto channels = coreInterface->channels();
 
-    q->addItem("None");
+    q->addItem(tpTR("None"));
 
     auto& handles = channels[typeID];
 
@@ -101,7 +104,7 @@ tp_control::CoreInterface* SelectChannelCombo::coreInterface() const
 //##################################################################################################
 void SelectChannelCombo::currentIndexChangedSlot(const QString& text)
 {
-  static const QString none("None");
+  const QString none(tpTR("None"));
 
   if(text == none)
     d->selectedChannel = tp_control::CoreInterfaceHandle();
