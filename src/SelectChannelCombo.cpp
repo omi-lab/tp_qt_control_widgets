@@ -58,7 +58,7 @@ struct SelectChannelCombo::Private
     for(const tp_utils::StringID& name : names)
     {
       const tp_control::CoreInterfaceHandle& handle = handles[name];
-      q->addItem(QString::fromStdString(handle.nameID().keyString()));
+      q->addItem(QString::fromStdString(handle.nameID().toString()));
 
       if(selectedChannel == handle)
         q->setCurrentIndex(q->count() - 1);
