@@ -53,6 +53,7 @@ SelectChannelComboAndButton::SelectChannelComboAndButton(tp_control::CoreInterfa
 
     d->combo->coreInterface()->handle(typeID, nameID);
     d->combo->setSelectedChannel(nameID);
+    emit d->combo->selectedChannelChanged(d->combo->selectedChannel());
   });
 
   connect(d->combo, &SelectChannelCombo::selectedChannelChanged, this, &SelectChannelComboAndButton::selectedChannelChanged);

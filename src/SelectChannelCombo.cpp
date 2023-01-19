@@ -17,27 +17,18 @@ struct SelectChannelCombo::Private
 
   tp_control::CoreInterfaceHandle selectedChannel;
 
-  tp_control::ChannelListChangedCallback channelListChangedCallback;
-
   //################################################################################################
   Private(SelectChannelCombo* q_, tp_control::CoreInterface* coreInterface_, tp_utils::StringID typeID_):
     q(q_),
     coreInterface(coreInterface_),
     typeID(std::move(typeID_))
   {
-    channelListChangedCallback = [&](){updateList();};
-    coreInterface->registerCallback(&channelListChangedCallback);
+    updateList.connect(coreInterface->channelListChanged);
     updateList();
   }
 
   //################################################################################################
-  ~Private()
-  {
-    coreInterface->unregisterCallback(&channelListChangedCallback);
-  }
-
-  //################################################################################################
-  void updateList()
+  tp_utils::Callback<void()> updateList = [&]()
   {
     q->blockSignals(true);
 
@@ -65,7 +56,7 @@ struct SelectChannelCombo::Private
     }
 
     q->blockSignals(false);
-  }
+  };
 };
 
 //##################################################################################################
@@ -73,7 +64,20 @@ SelectChannelCombo::SelectChannelCombo(tp_control::CoreInterface* coreInterface,
   QComboBox(parent),
   d(new Private(this, coreInterface, typeID))
 {
-  connect(this, SIGNAL(currentIndexChanged(QString)), this, SLOT(currentIndexChangedSlot(QString)));
+  connect(this,
+          &QComboBox::currentTextChanged,
+          this,
+          [&](const QString& text)
+  {
+    const QString none(tpTR("None"));
+
+    if(text == none)
+      d->selectedChannel = tp_control::CoreInterfaceHandle();
+    else
+      d->selectedChannel = d->coreInterface->handle(d->typeID, text.toStdString());
+
+    emit selectedChannelChanged(d->selectedChannel);
+  });
 }
 
 //##################################################################################################
@@ -99,19 +103,6 @@ void SelectChannelCombo::setSelectedChannel(const tp_utils::StringID& channelNam
 tp_control::CoreInterface* SelectChannelCombo::coreInterface() const
 {
   return d->coreInterface;
-}
-
-//##################################################################################################
-void SelectChannelCombo::currentIndexChangedSlot(const QString& text)
-{
-  const QString none(tpTR("None"));
-
-  if(text == none)
-    d->selectedChannel = tp_control::CoreInterfaceHandle();
-  else
-    d->selectedChannel = d->coreInterface->handle(d->typeID, text.toStdString());
-
-  emit selectedChannelChanged(d->selectedChannel);
 }
 
 }

@@ -73,9 +73,6 @@ signals:
   //! Emitted each time the channel selection changes.
   void selectedChannelChanged(const tp_control::CoreInterfaceHandle& selectedChannel);
 
-private slots:
-  void currentIndexChangedSlot(const QString& text);
-
 private:
   struct Private;
   Private* d;
