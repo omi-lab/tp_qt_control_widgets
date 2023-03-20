@@ -34,7 +34,7 @@ SelectChannelComboAndButton::SelectChannelComboAndButton(tp_control::CoreInterfa
   auto addButton = new QPushButton(tpTR("Add"));
   l->addWidget(addButton);
 
-  connect(addButton, &QPushButton::clicked, [&, typeID]()
+  connect(addButton, &QPushButton::clicked, this, [&, typeID]()
   {
     std::string channelName = QInputDialog::getText(this->parentWidget(), tpTR("Channel Name"), tpTR("Enter a name for the channel.")).toStdString();
     channelName = tp_validation::cleanAlphaNumericSpaceUnderscore(channelName);
