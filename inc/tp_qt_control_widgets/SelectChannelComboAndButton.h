@@ -24,6 +24,7 @@ namespace tp_qt_control_widgets
 class TP_QT_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelComboAndButton: public QWidget
 {
   Q_OBJECT
+  TP_DQ;
 public:
   //################################################################################################
   //! Construct a channel combo.
@@ -67,11 +68,6 @@ signals:
   //################################################################################################
   //! Emitted each time the channel selection changes.
   void selectedChannelChanged(const tp_control::CoreInterfaceHandle& selectedChannel);
-
-private:
-  struct Private;
-  Private* d;
-  friend struct Private;
 };
 
 }

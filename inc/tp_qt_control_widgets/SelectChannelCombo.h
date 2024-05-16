@@ -29,6 +29,7 @@ This class allows the user to select a channel, of a given type from a \link Abs
 class TP_QT_CONTROL_WIDGETS_SHARED_EXPORT SelectChannelCombo: public QComboBox
 {
   Q_OBJECT
+  TP_DQ;
 public:
   //################################################################################################
   //! Construct a channel combo.
@@ -72,11 +73,6 @@ signals:
   //################################################################################################
   //! Emitted each time the channel selection changes.
   void selectedChannelChanged(const tp_control::CoreInterfaceHandle& selectedChannel);
-
-private:
-  struct Private;
-  Private* d;
-  friend struct Private;
 };
 
 }
