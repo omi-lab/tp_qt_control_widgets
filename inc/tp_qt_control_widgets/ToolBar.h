@@ -31,6 +31,7 @@ the check state of its buttons accordingly.
 class TP_QT_CONTROL_WIDGETS_SHARED_EXPORT ToolBar: public QToolBar
 {
   Q_OBJECT
+  TP_DQ;
 public:
   //################################################################################################
   //! Construct a tool bar
@@ -59,11 +60,6 @@ public:
 private slots:
   //################################################################################################
   void buttonClicked(int index);
-
-private:
-  struct Private;
-  Private* d;
-  friend struct Private;
 };
 
 }
