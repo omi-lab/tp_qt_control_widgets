@@ -11,14 +11,14 @@ namespace tp_qt_control_widgets
 struct SelectChannelCombo::Private
 {
   TP_NONCOPYABLE(Private);
-  SelectChannelCombo* q;
+  Q* q;
   tp_control::CoreInterface* coreInterface;
   tp_utils::StringID typeID;
 
   tp_control::CoreInterfaceHandle selectedChannel;
 
   //################################################################################################
-  Private(SelectChannelCombo* q_, tp_control::CoreInterface* coreInterface_, tp_utils::StringID typeID_):
+  Private(Q* q_, tp_control::CoreInterface* coreInterface_, tp_utils::StringID typeID_):
     q(q_),
     coreInterface(coreInterface_),
     typeID(std::move(typeID_))

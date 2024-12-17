@@ -17,9 +17,10 @@ struct ButtonDetails_lt
 };
 }
 
+//##################################################################################################
 struct ToolBar::Private
 {
-  ToolBar* q;
+  Q* q;
 
   tp_control::CoreInterface* coreInterface;
   tp_control::CoreInterfaceHandle channel;
@@ -27,7 +28,7 @@ struct ToolBar::Private
   QList<ButtonDetails_lt> buttons;
 
   //################################################################################################
-  Private(ToolBar* q_, tp_control::CoreInterface* coreInterface_, tp_control::CoreInterfaceHandle channel_):
+  Private(Q* q_, tp_control::CoreInterface* coreInterface_, tp_control::CoreInterfaceHandle channel_):
     q(q_),
     coreInterface(coreInterface_),
     channel(std::move(channel_))
